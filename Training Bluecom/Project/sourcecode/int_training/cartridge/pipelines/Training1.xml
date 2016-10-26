@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?demandware-pipeline version="2.0"?>
+
+<pipeline type="view">
+  <branch basename="Start">
+    <segment>
+      <node>
+        <start-node name="Start" secure="false"/>
+        <node-display x="1" y="1"/>
+      </node>
+      <simple-transition/>
+      <node>
+        <pipelet-node pipelet-name="Assign" pipelet-set-identifier="bc_api">
+          <config-property key="Transactional" value="false"/>
+          <key-binding alias="&quot;This is my variable by assign node.&quot;" key="From_0"/>
+          <key-binding alias="myAssignVariable" key="To_0"/>
+          <key-binding alias="new Array(1,2,3,4,5)" key="From_1"/>
+          <key-binding alias="currentArray" key="To_1"/>
+          <key-binding alias="0" key="From_2"/>
+          <key-binding alias="count" key="To_2"/>
+          <key-binding alias="null" key="From_3"/>
+          <key-binding alias="null" key="To_3"/>
+          <key-binding alias="null" key="From_4"/>
+          <key-binding alias="null" key="To_4"/>
+          <key-binding alias="null" key="From_5"/>
+          <key-binding alias="null" key="To_5"/>
+          <key-binding alias="null" key="From_6"/>
+          <key-binding alias="null" key="To_6"/>
+          <key-binding alias="null" key="From_7"/>
+          <key-binding alias="null" key="To_7"/>
+          <key-binding alias="null" key="From_8"/>
+          <key-binding alias="null" key="To_8"/>
+          <key-binding alias="null" key="From_9"/>
+          <key-binding alias="null" key="To_9"/>
+        </pipelet-node>
+        <node-display x="0" y="1"/>
+      </node>
+      <transition target-connector="in" target-path="./+1"/>
+    </segment>
+    <segment>
+      <node>
+        <loop-node element-key="n" iterator-key="currentArray"/>
+        <node-display x="0" y="1"/>
+        <branch basename="b2" source-connector="do">
+          <transition target-connector="in"/>
+          <segment>
+            <node>
+              <decision-node condition-key="n&gt;=2" condition-operator="expr"/>
+              <node-display x="0" y="1"/>
+              <branch basename="b2" source-connector="yes">
+                <transition target-connector="in"/>
+                <segment>
+                  <node>
+                    <pipelet-node pipelet-name="Assign" pipelet-set-identifier="bc_api">
+                      <config-property key="Transactional" value="false"/>
+                      <key-binding alias="count+1" key="From_0"/>
+                      <key-binding alias="count" key="To_0"/>
+                      <key-binding alias="null" key="From_1"/>
+                      <key-binding alias="null" key="To_1"/>
+                      <key-binding alias="null" key="From_2"/>
+                      <key-binding alias="null" key="To_2"/>
+                      <key-binding alias="null" key="From_3"/>
+                      <key-binding alias="null" key="To_3"/>
+                      <key-binding alias="null" key="From_4"/>
+                      <key-binding alias="null" key="To_4"/>
+                      <key-binding alias="null" key="From_5"/>
+                      <key-binding alias="null" key="To_5"/>
+                      <key-binding alias="null" key="From_6"/>
+                      <key-binding alias="null" key="To_6"/>
+                      <key-binding alias="null" key="From_7"/>
+                      <key-binding alias="null" key="To_7"/>
+                      <key-binding alias="null" key="From_8"/>
+                      <key-binding alias="null" key="To_8"/>
+                      <key-binding alias="null" key="From_9"/>
+                      <key-binding alias="null" key="To_9"/>
+                    </pipelet-node>
+                    <node-display x="0" y="1"/>
+                  </node>
+                  <transition target-connector="in1" target-path="../+1"/>
+                </segment>
+              </branch>
+            </node>
+            <transition target-connector="in2" target-path="./+1">
+              <transition-display>
+                <bend-point relative-to="source" x="2" y="0"/>
+                <bend-point relative-to="target" x="2" y="0"/>
+              </transition-display>
+            </transition>
+          </segment>
+          <segment>
+            <node>
+              <join-node/>
+              <node-display x="0" y="2"/>
+            </node>
+            <transition target-connector="loop" target-path="..">
+              <transition-display>
+                <bend-point relative-to="source" x="-1" y="0"/>
+                <bend-point relative-to="target" x="-1" y="0"/>
+              </transition-display>
+            </transition>
+          </segment>
+        </branch>
+      </node>
+      <simple-transition>
+        <transition-display>
+          <bend-point relative-to="source" x="1" y="0"/>
+        </transition-display>
+      </simple-transition>
+      <node>
+        <interaction-node transaction-required="false">
+          <template buffered="true" dynamic="false" name="training1/demoAssignNode.isml"/>
+        </interaction-node>
+        <node-display orientation="horizontal" x="1" y="0"/>
+      </node>
+    </segment>
+  </branch>
+</pipeline>

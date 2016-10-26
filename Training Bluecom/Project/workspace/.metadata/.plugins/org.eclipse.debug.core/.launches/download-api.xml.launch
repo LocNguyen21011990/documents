@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.ant.AntLaunchConfigurationType">
+<booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
+<booleanAttribute key="org.eclipse.debug.ui.private" value="true"/>
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.ant.ui.AntClasspathProvider"/>
+<booleanAttribute key="org.eclipse.jdt.launching.DEFAULT_CLASSPATH" value="true"/>
+<mapAttribute key="org.eclipse.ui.externaltools.ATTR_ANT_PROPERTIES">
+<mapEntry key="archiveName" value="demandware-mock.zip"/>
+<mapEntry key="distBaseUrl" value="https://bluecom17-alliance-prtnr-hk01-dw.demandware.net:443/on/demandware.servlet/WFS/Studio/Sites/mock"/>
+<mapEntry key="oldServerApiDirectory" value="D:\Training\documents\Training Bluecom\Project\workspace\.metadata\.plugins\com.demandware.studio.server\server\DigitalServer"/>
+<mapEntry key="password" value="Ngoctrinh1809!"/>
+<mapEntry key="serverApiDirectory" value="D:\Training\documents\Training Bluecom\Project\workspace\DigitalServer\.api"/>
+<mapEntry key="tempArchive" value="C:\Users\user\AppData\Local\Temp\demandware-api7777492678442987875.zip"/>
+<mapEntry key="userName" value="locbao.nguyen"/>
+</mapAttribute>
+<booleanAttribute key="org.eclipse.ui.externaltools.ATTR_CAPTURE_OUTPUT" value="true"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:\Users\user\.eclipse\org.eclipse.platform_4.5.1_629339841_win32_win32_x86_64\plugins\com.demandware.studio.server_16.9.1.v201610041629\data\download-api.xml"/>
+<booleanAttribute key="org.eclipse.ui.externaltools.ATTR_SHOW_CONSOLE" value="true"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-v"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="C:\Users\user\.eclipse\org.eclipse.platform_4.5.1_629339841_win32_win32_x86_64\plugins\com.demandware.studio.server_16.9.1.v201610041629\data"/>
+</launchConfiguration>

@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?demandware-pipeline version="2.0"?>
+
+<pipeline type="view">
+  <branch basename="_ANONYMOUS_BRANCH_1">
+    <segment>
+      <node>
+        <text-node>
+          <description>This is demo start node</description>
+        </text-node>
+        <node-display x="0" y="0"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="Start">
+    <segment>
+      <node>
+        <start-node call-mode="public" name="Start" secure="false"/>
+        <node-display x="0" y="1"/>
+      </node>
+      <simple-transition/>
+      <node>
+        <call-node start-name-ref="Training2-ThisIsCallNnode"/>
+        <node-display x="0" y="1"/>
+        <branch basename="b2" source-connector="OK">
+          <transition target-connector="in">
+            <transition-display>
+              <bend-point relative-to="target" x="0" y="-1"/>
+            </transition-display>
+          </transition>
+          <segment>
+            <node>
+              <interaction-node transaction-required="false">
+                <template buffered="true" dynamic="false" name="training2/demoCallNode.isml"/>
+              </interaction-node>
+              <node-display x="1" y="2"/>
+            </node>
+          </segment>
+        </branch>
+        <branch basename="b3" source-connector="OK1">
+          <transition target-connector="in">
+            <transition-display>
+              <bend-point relative-to="target" x="0" y="-1"/>
+            </transition-display>
+          </transition>
+          <segment>
+            <node>
+              <jump-node start-name-ref="Training2-ThisIsJumpNode"/>
+              <node-display x="0" y="2"/>
+            </node>
+          </segment>
+        </branch>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="ThisIsCallNnode">
+    <segment>
+      <node>
+        <start-node call-mode="private" name="ThisIsCallNnode" secure="false"/>
+        <node-display x="2" y="1"/>
+      </node>
+      <simple-transition>
+        <transition-display>
+          <bend-point relative-to="source" x="0" y="1"/>
+        </transition-display>
+      </simple-transition>
+      <node>
+        <end-node name="OK1"/>
+        <node-display x="0" y="1"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="ThisIsJumpNode">
+    <segment>
+      <node>
+        <start-node call-mode="private" name="ThisIsJumpNode" secure="false"/>
+        <node-display x="4" y="1"/>
+      </node>
+      <simple-transition>
+        <transition-display>
+          <bend-point relative-to="source" x="0" y="1"/>
+        </transition-display>
+      </simple-transition>
+      <node>
+        <interaction-node transaction-required="false">
+          <template buffered="true" dynamic="false" name="training2/demoJumpNode.isml"/>
+        </interaction-node>
+        <node-display x="0" y="1"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="_ANONYMOUS_BRANCH_5">
+    <segment>
+      <node>
+        <text-node>
+          <description>Demo assign node</description>
+        </text-node>
+        <node-display x="0" y="5"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="_ANONYMOUS_BRANCH_6">
+    <segment>
+      <node>
+        <text-node>
+          <description>Demo pipelet GetProduct ,custom attribute</description>
+        </text-node>
+        <node-display x="2" y="5"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="DemoAssignNode">
+    <segment>
+      <node>
+        <start-node name="DemoAssignNode" secure="false"/>
+        <node-display x="0" y="6"/>
+      </node>
+      <simple-transition/>
+      <node>
+        <pipelet-node pipelet-name="Assign" pipelet-set-identifier="bc_api">
+          <config-property key="Transactional" value="false"/>
+          <key-binding alias="&quot;This is variabe of assign node&quot;" key="From_0"/>
+          <key-binding alias="variable" key="To_0"/>
+          <key-binding alias="new Array(1,2,3,4,5)" key="From_1"/>
+          <key-binding alias="currentArray" key="To_1"/>
+          <key-binding alias="null" key="From_2"/>
+          <key-binding alias="null" key="To_2"/>
+          <key-binding alias="null" key="From_3"/>
+          <key-binding alias="null" key="To_3"/>
+          <key-binding alias="null" key="From_4"/>
+          <key-binding alias="null" key="To_4"/>
+          <key-binding alias="null" key="From_5"/>
+          <key-binding alias="null" key="To_5"/>
+          <key-binding alias="null" key="From_6"/>
+          <key-binding alias="null" key="To_6"/>
+          <key-binding alias="null" key="From_7"/>
+          <key-binding alias="null" key="To_7"/>
+          <key-binding alias="null" key="From_8"/>
+          <key-binding alias="null" key="To_8"/>
+          <key-binding alias="null" key="From_9"/>
+          <key-binding alias="null" key="To_9"/>
+        </pipelet-node>
+        <node-display x="0" y="1"/>
+      </node>
+      <simple-transition/>
+      <node>
+        <interaction-node transaction-required="false">
+          <template buffered="true" dynamic="false" name="training2/demoAssignNode.isml"/>
+        </interaction-node>
+        <node-display x="0" y="1"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="DemoPipelet">
+    <segment>
+      <node>
+        <start-node name="DemoPipelet" secure="false"/>
+        <node-display x="2" y="6"/>
+      </node>
+      <simple-transition/>
+      <node>
+        <pipelet-node pipelet-name="GetProduct" pipelet-set-identifier="bc_api">
+          <key-binding alias="Product" key="Product"/>
+          <key-binding alias="CurrentHttpParameterMap.pid.value" key="ProductID"/>
+        </pipelet-node>
+        <node-display x="0" y="1"/>
+        <branch basename="b2" source-connector="error">
+          <transition target-connector="in">
+            <transition-display>
+              <bend-point relative-to="source" x="1" y="0"/>
+            </transition-display>
+          </transition>
+          <segment>
+            <node>
+              <end-node/>
+              <node-display orientation="horizontal" x="1" y="0"/>
+            </node>
+          </segment>
+        </branch>
+      </node>
+      <simple-transition/>
+      <node>
+        <interaction-node transaction-required="false">
+          <template buffered="true" dynamic="false" name="training2/demoPipelet.isml"/>
+        </interaction-node>
+        <node-display x="0" y="1"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="_ANONYMOUS_BRANCH_9">
+    <segment>
+      <node>
+        <text-node>
+          <description>Demo script node</description>
+        </text-node>
+        <node-display x="4" y="5"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="DemoScriptNode">
+    <segment>
+      <node>
+        <start-node name="DemoScriptNode" secure="false"/>
+        <node-display x="4" y="6"/>
+      </node>
+      <simple-transition/>
+      <node>
+        <pipelet-node pipelet-name="Script" pipelet-set-identifier="bc_api">
+          <config-property key="Transactional" value="false"/>
+          <config-property key="OnError" value="PIPELET_ERROR"/>
+          <config-property key="ScriptFile" value="demoscripts/test.ds"/>
+          <key-binding alias="null" key="ScriptLog"/>
+          <key-binding alias="10" key="VariableA"/>
+          <key-binding alias="5" key="VariableB"/>
+          <key-binding alias="sumResult" key="Result"/>
+          <key-binding alias="CurrentHttpParameterMap.pid.value" key="pid"/>
+          <key-binding alias="Product" key="Product"/>
+        </pipelet-node>
+        <node-display x="0" y="1"/>
+        <branch basename="b2" source-connector="error">
+          <transition target-connector="in">
+            <transition-display>
+              <bend-point relative-to="source" x="1" y="0"/>
+            </transition-display>
+          </transition>
+          <segment>
+            <node>
+              <end-node/>
+              <node-display orientation="horizontal" x="1" y="0"/>
+            </node>
+          </segment>
+        </branch>
+      </node>
+      <simple-transition>
+        <transition-display>
+          <bend-point relative-to="source" x="0" y="1"/>
+        </transition-display>
+      </simple-transition>
+      <node>
+        <interaction-node transaction-required="false">
+          <template buffered="true" dynamic="false" name="training2/demoScriptNode.isml"/>
+        </interaction-node>
+        <node-display x="0" y="1"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="_ANONYMOUS_BRANCH_11">
+    <segment>
+      <node>
+        <text-node>
+          <description>Demo loop node</description>
+        </text-node>
+        <node-display x="1" y="9"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="DemoLoopNode">
+    <segment>
+      <node>
+        <start-node name="DemoLoopNode" secure="false"/>
+        <node-display x="1" y="10"/>
+      </node>
+      <simple-transition>
+        <transition-display>
+          <bend-point relative-to="source" x="0" y="1"/>
+        </transition-display>
+      </simple-transition>
+      <node>
+        <pipelet-node custom-name="Testing" pipelet-name="Assign" pipelet-set-identifier="bc_api">
+          <config-property key="Transactional" value="false"/>
+          <key-binding alias="0" key="From_0"/>
+          <key-binding alias="count" key="To_0"/>
+          <key-binding alias="new Array(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;,&quot;5&quot;)" key="From_1"/>
+          <key-binding alias="currentArray" key="To_1"/>
+          <key-binding alias="null" key="From_2"/>
+          <key-binding alias="null" key="To_2"/>
+          <key-binding alias="null" key="From_3"/>
+          <key-binding alias="null" key="To_3"/>
+          <key-binding alias="null" key="From_4"/>
+          <key-binding alias="null" key="To_4"/>
+          <key-binding alias="null" key="From_5"/>
+          <key-binding alias="null" key="To_5"/>
+          <key-binding alias="null" key="From_6"/>
+          <key-binding alias="null" key="To_6"/>
+          <key-binding alias="null" key="From_7"/>
+          <key-binding alias="null" key="To_7"/>
+          <key-binding alias="null" key="From_8"/>
+          <key-binding alias="null" key="To_8"/>
+          <key-binding alias="null" key="From_9"/>
+          <key-binding alias="null" key="To_9"/>
+        </pipelet-node>
+        <node-display x="0" y="1"/>
+      </node>
+      <transition target-connector="in" target-path="./+1"/>
+    </segment>
+    <segment>
+      <node>
+        <loop-node element-key="a" iterator-key="currentArray"/>
+        <node-display x="0" y="1"/>
+        <branch basename="b2" source-connector="do">
+          <transition target-connector="in"/>
+          <segment>
+            <node>
+              <decision-node condition-key="a&lt;=3" condition-operator="expr"/>
+              <node-display x="0" y="1"/>
+              <branch basename="b2" source-connector="yes">
+                <transition target-connector="in"/>
+                <segment>
+                  <node>
+                    <pipelet-node pipelet-name="Assign" pipelet-set-identifier="bc_api">
+                      <config-property key="Transactional" value="false"/>
+                      <key-binding alias="count+1" key="From_0"/>
+                      <key-binding alias="count" key="To_0"/>
+                      <key-binding alias="null" key="From_1"/>
+                      <key-binding alias="null" key="To_1"/>
+                      <key-binding alias="null" key="From_2"/>
+                      <key-binding alias="null" key="To_2"/>
+                      <key-binding alias="null" key="From_3"/>
+                      <key-binding alias="null" key="To_3"/>
+                      <key-binding alias="null" key="From_4"/>
+                      <key-binding alias="null" key="To_4"/>
+                      <key-binding alias="null" key="From_5"/>
+                      <key-binding alias="null" key="To_5"/>
+                      <key-binding alias="null" key="From_6"/>
+                      <key-binding alias="null" key="To_6"/>
+                      <key-binding alias="null" key="From_7"/>
+                      <key-binding alias="null" key="To_7"/>
+                      <key-binding alias="null" key="From_8"/>
+                      <key-binding alias="null" key="To_8"/>
+                      <key-binding alias="null" key="From_9"/>
+                      <key-binding alias="null" key="To_9"/>
+                    </pipelet-node>
+                    <node-display x="0" y="1"/>
+                  </node>
+                  <transition target-connector="in1" target-path="../+1"/>
+                </segment>
+              </branch>
+            </node>
+            <transition target-connector="in1" target-path="./+1">
+              <transition-display>
+                <bend-point relative-to="source" x="1" y="0"/>
+                <bend-point relative-to="target" x="1" y="0"/>
+              </transition-display>
+            </transition>
+          </segment>
+          <segment>
+            <node>
+              <join-node/>
+              <node-display x="0" y="2"/>
+            </node>
+            <transition target-connector="loop" target-path="..">
+              <transition-display>
+                <bend-point relative-to="source" x="-1" y="0"/>
+                <bend-point relative-to="target" x="-1" y="0"/>
+              </transition-display>
+            </transition>
+          </segment>
+        </branch>
+      </node>
+      <simple-transition>
+        <transition-display>
+          <bend-point relative-to="source" x="1" y="0"/>
+        </transition-display>
+      </simple-transition>
+      <node>
+        <interaction-node transaction-required="false">
+          <template buffered="true" dynamic="false" name="training/LoopTemplate.isml"/>
+        </interaction-node>
+        <node-display orientation="horizontal" x="1" y="0"/>
+      </node>
+    </segment>
+  </branch>
+  <branch basename="DemoDecorate">
+    <segment>
+      <node>
+        <start-node name="DemoDecorate" secure="false"/>
+        <node-display x="1" y="16"/>
+      </node>
+      <simple-transition>
+        <transition-display>
+          <bend-point relative-to="source" x="0" y="1"/>
+        </transition-display>
+      </simple-transition>
+      <node>
+        <interaction-node transaction-required="false">
+          <template buffered="true" dynamic="false" name="training2/demoDecorate.isml"/>
+        </interaction-node>
+        <node-display x="0" y="1"/>
+      </node>
+    </segment>
+  </branch>
+</pipeline>
