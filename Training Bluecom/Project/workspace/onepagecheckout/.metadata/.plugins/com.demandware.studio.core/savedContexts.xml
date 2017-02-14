@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<searchContexts>
+<context Description="Sites-SiteGenesis-Site (debugged Site)">
+<elements>
+<element creator-version="3" element-handle-id="AUNhcnRyaWRnZQJpbnRfb25lcGFnZV9jaGVja291dA==" factoryID="com.demandware.studio.core.common.beehiveElementFactory"/>
+<element creator-version="3" element-handle-id="AUNhcnRyaWRnZQJhcHBfcGlwZWxpbmVz" factoryID="com.demandware.studio.core.common.beehiveElementFactory"/>
+<element creator-version="3" element-handle-id="AUNhcnRyaWRnZQJhcHBfY29yZQ==" factoryID="com.demandware.studio.core.common.beehiveElementFactory"/>
+<element creator-version="3" element-handle-id="AUNhcnRyaWRnZQJibV9pbnRlZ3JhdGlvbmZyYW1ld29yaw==" factoryID="com.demandware.studio.core.common.beehiveElementFactory"/>
+<element creator-version="3" element-handle-id="AUNhcnRyaWRnZQJiY19pbnRlZ3JhdGlvbmZyYW1ld29yaw==" factoryID="com.demandware.studio.core.common.beehiveElementFactory"/>
+<element creator-version="3" element-handle-id="AUNhcnRyaWRnZQJiY19hcGk=" factoryID="com.demandware.studio.core.common.beehiveElementFactory"/>
+</elements>
+</context>
+</searchContexts>

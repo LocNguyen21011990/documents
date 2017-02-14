@@ -1,0 +1,3 @@
+This is include template. <br />
+
+Request var: ${request.custom.requestVar}

@@ -1,0 +1,2 @@
+This is product name : ${pdict.Product.name} <br/>
+${pdict.Product.custom.CustomAttr1}

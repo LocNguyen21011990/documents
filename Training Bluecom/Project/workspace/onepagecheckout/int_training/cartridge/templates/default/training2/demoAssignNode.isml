@@ -1,0 +1,2 @@
+${pdict.variable}<br />
+${pdict.currentArray.length}

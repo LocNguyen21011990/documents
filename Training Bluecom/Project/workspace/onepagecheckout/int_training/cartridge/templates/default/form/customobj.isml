@@ -1,0 +1,28 @@
+<isinclude template="util/modules.isml" />
+
+<form action="${URLUtils.httpsContinue()}" method="post" class="clearfix" id="${pdict.CurrentForms.customobj.htmlName}">
+			<fieldset>
+				<isinputfield formfield="${pdict.CurrentForms.customobj.ID}"  type="input" requiredtext="${Resource.msg('login.username.missing-error','forms',null)}"/>
+				<isinputfield formfield="${pdict.CurrentForms.customobj.firstname}" type="input" requiredtext="${Resource.msg('login.username.missing-error','forms',null)}"/>
+				<isscript>
+					var attributes = {
+						autocomplete: "off"
+					};
+				</isscript>
+				<isinputfield formfield="${pdict.CurrentForms.customobj.lastname}" type="input" dynamicname="true" requiredtext="${Resource.msg('login.password.missing-error','forms',null)}" attributes="${attributes}"/>
+				<isinputfield formfield="${pdict.CurrentForms.customobj.email}" type="input" dynamicname="true" requiredtext="${Resource.msg('login.password.missing-error','forms',null)}" attributes="${attributes}"/>
+				<div class="form-row form-row-button">
+					<button type="submit" value="Update" name="${pdict.CurrentForms.customobj.update.htmlName}">
+						Update
+					</button>
+					<button type="submit" value="Add new" name="${pdict.CurrentForms.customobj.add.htmlName}">
+						Add
+					</button>
+				</div>
+
+				
+				<input type="hidden" name="${dw.web.CSRFProtection.getTokenName()}" value="${dw.web.CSRFProtection.generateToken()}"/>
+
+			</fieldset>
+
+</form>

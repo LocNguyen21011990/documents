@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>DigitalServer</name>
+	<comment></comment>
+	<projects>
+		<project>app_pipelines</project>
+		<project>bc_integrationframework</project>
+		<project>bc_library</project>
+		<project>ExCartridge_core</project>
+		<project>ExCartridge_pipelines</project>
+		<project>bm_catridge</project>
+		<project>bm_integrationframework</project>
+		<project>bm_training</project>
+		<project>int_one_page_checkout</project>
+		<project>int_training</project>
+		<project>int_onepage_checkout</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.demandware.studio.server.uploadBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.demandware.studio.server.serverProjectNature</nature>
+	</natures>
+</projectDescription>
