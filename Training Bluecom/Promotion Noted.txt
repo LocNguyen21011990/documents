@@ -1,0 +1,29 @@
+Priority 
+	- Exclusivity : Global->Class->No
+	- Promotion Class : Product->Order->Shipping
+	- Rank : min is highest,none is lowest.
+	- Discount type :
+		Fixed price
+		Total fixed price
+		Free
+		Pricebook price
+		Amount-off
+		Percent-off
+		Bonus-product
+		Choice of bonus products
+		Free product-shipping
+		Fixed price product-shipping
+
+Explain promotion case:
+	- Without Qualifying Products : Discounted Products
+	- With Amount of Qualifying Products : Khuyến mãi trên total của products (quantity*standard price)
+	- With Number of Qualifying Products : Khuyến mãi trên quantity products
+	- With Combination of Products : Mua n X and n Y --> khuyến mãi Z (X or Y)
+	- Buy X/Get Y : Buy x or more Get n discounted product(s) (mua 3 sp --> khuyến mãi 1 trong 3)
+	- Buy X and Y/Get Z : Mua X vs Y --> Khuyễn mãi Z
+	- Buy X for Total : Mua 5 sp --> tính phí 3 sp (giá khuyến mãi),2sp con lai tính giá standard
+
+Campaign:
+	- Add Customer Group (uncheck Coupon)
+	- Add Coupon (uncheck customer group)
+	- Assign Promotion	
